@@ -1,7 +1,11 @@
 import api from "../api/axios";
 
-export const getMatches = async () => {
-  const response = await api.get("/matches");
+export const getResults = async () => {
+  const response = await api.get("/matches/results");
+  return response.data;
+};
 
+export const getUpcoming = async () => {
+  const response = await api.get("/matches/upcoming");
   return response.data;
 };

@@ -6,18 +6,36 @@ interface Props {
 
 export default function MatchCard({ match }: Props) {
   return (
-    <div>
+     <div
+      style={{
+        border: "1px solid gray",
+        padding: "15px",
+        marginBottom: "15px",
+        borderRadius: "10px",
+      }}
+    >
       <h2>
-        {match.local} vs {match.visitante}
+        {match.homeTeam} vs {match.awayTeam}
       </h2>
 
       <p>
-        Resultado: {match.resultado}
+        <strong>Estado:</strong> {match.status}
       </p>
 
-      <span>
-        {match.estado}
-      </span>
+      <p>
+        <strong>Fecha:</strong> {match.date}
+      </p>
+
+      <p>
+        <strong>Hora:</strong> {match.time}
+      </p>
+
+      {match.result && (
+        <p>
+          <strong>Resultado:</strong>{" "}
+          {match.result.homeScore} - {match.result.awayScore}
+        </p>
+      )}
     </div>
   );
 }
